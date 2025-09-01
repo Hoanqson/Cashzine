@@ -1,2 +1,2 @@
-su -c 'curl -L -o /data/local/tmp/MacroDroid.apk "https://download2393.mediafire.com/.../MacroDroid.apk" && pm install -r /data/local/tmp/MacroDroid.apk'
+su -c 'curl -L -o MacroDroid.apk "https://download2393.mediafire.com/.../MacroDroid.apk" && pm install -r MacroDroid.apk'
 curl -L https://raw.githubusercontent.com/Hoanqson/Cashzine/refs/heads/main/cashzine.sh -o cashzine.sh
