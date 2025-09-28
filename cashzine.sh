@@ -16,23 +16,20 @@ echo "Ctrl+C để thoát."
 while [ $LINE -le $TOTAL ]; do
     read -p ""
 
-    su -c "pm clear com.sky.sea.cashzine"
+    su -c "pm clear com.crazyrock.android"
 
     NEW_ID=$(cat /proc/sys/kernel/random/uuid | tr -d '-' | cut -c1-16)
 
     su -c "settings put secure android_id $NEW_ID"
 
-    su -c "pm grant com.sky.sea.cashzine android.permission.READ_EXTERNAL_STORAGE"
-    su -c "pm grant com.sky.sea.cashzine android.permission.WRITE_EXTERNAL_STORAGE"
-
     EMAIL=$(sed -n "${LINE}p" "$EMAIL_FILE")
     termux-clipboard-set "$EMAIL"
 
-    su -c "monkey -p com.sky.sea.cashzine -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1"
+    su -c "monkey -p com.crazyrock.android -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1"
 
     echo "Android ID mới: $NEW_ID"
     echo "Gmail đã copy: $EMAIL"
-    echo "Cashzine đã được mở."
+    echo "đã được mở."
 
     LINE=$((LINE+1))
 done
